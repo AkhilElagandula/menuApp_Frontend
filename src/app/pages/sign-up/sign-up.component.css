@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.main {
+    background: #151515;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 400px;
+    height: 100%;
+    background-color: transparent !important;
+    padding: 10px 30px;
+}
+
+.card_title {
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.form input,
+select {
+    margin: 10px 0;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #fff;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: #ffffff;
+}
+
+.form option {
+    color: #ffffff;
+    background-color: #151515;
+}
+
+option:disabled {
+    display: none;
+}
+
+.card_terms {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: #ffffff
+}
+
+.card_terms input[type="checkbox"] {
+    background-color: transparent
+}
+
+.card_terms span {
+    margin: 5px;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.btn-signup {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 0 0;
+}
+
+.btn {
+    background: #EA7C69;
+    color: #151515;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 8px 15px;
+    width: 40%;
+    align-items: center;
+}
+
+.card a {
+    color: #EA7C69;
+}
+
+.formgroup {
+    display: flex;
+    width: 50%;
+}
+
+.formcontrol {
+    width: 95%;
+}
+
+.invalid-form {
+    color: red;
+}
+
+@media screen and (max-width: 280px) {
+    .btn {
+        width: 70%;
+    }
+}
+
+/* @media screen and (max-width: 768px) {
+    .formcontrol {
+        width: 95%;
+    }
+
+    .main {
+        background: #151515;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+} */

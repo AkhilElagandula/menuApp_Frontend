@@ -1,0 +1,120 @@
+<section class="main">
+    <div class="container">
+        <div class="card">
+            <div class="card_title">
+                <span>Create Account</span>
+            </div>
+            <div class="form">
+                <form [formGroup]="signUpForm" action="/register" method="post" class="form-inline">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="formgroup">
+                                <div class="formcontrol" [ngClass]="displayFieldCss('firstName')">
+                                    <input type="text" name="fname" id="fname" placeholder="First Name"
+                                        formControlName="firstName" (keypress)="isAlphabet($event)" />
+                                </div>
+                            </div>
+                            <div class="formgroup" style="justify-content: end;">
+                                <div class="formcontrol">
+                                    <input type="text" name="lname" id="lname" placeholder="Last Name"
+                                        formControlName="lastName" (keypress)="isAlphabet($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="error-sec fName">
+                            <app-field-error-display class="invalid-form"
+                                *ngIf="getFormControl('firstName')?.errors?.['required']"
+                                [displayError]="isFieldValid('firstName')"
+                                [errorMsg]="errorMessageObject.firstNameRequired">
+                            </app-field-error-display>
+                            <app-field-error-display class="invalid-form"
+                                [displayError]="isFieldValid('firstName') && getFormControl('firstName')?.errors?.['minlength']"
+                                [errorMsg]="errorMessageObject.firstNameMinLength">
+                            </app-field-error-display>
+                        </div>
+                        <div class="error-sec lName">
+                            <app-field-error-display class="invalid-form"
+                                *ngIf="getFormControl('lastName')?.errors?.['required']"
+                                [displayError]="isFieldValid('lastName')"
+                                [errorMsg]="errorMessageObject.lastNameRequired">
+                            </app-field-error-display>
+                            <app-field-error-display class="invalid-form"
+                                [displayError]="isFieldValid('lastName') && getFormControl('lastName')?.errors?.['minlength']"
+                                [errorMsg]="errorMessageObject.lastNameMinLength">
+                            </app-field-error-display>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <input type="email" name="email" placeholder="Enter your email" id="email"
+                            formControlName="email" />
+                    </div>
+                    <div class="error-sec email">
+                        <app-field-error-display class="invalid-form"
+                            *ngIf="getFormControl('email')?.errors?.['required']" [displayError]="isFieldValid('email')"
+                            [errorMsg]="errorMessageObject.emailRequired">
+                        </app-field-error-display>
+                        <app-field-error-display class="invalid-form"
+                                [displayError]="isFieldValid('email') && getFormControl('email')?.errors?.['email']"
+                                [errorMsg]="errorMessageObject.emailPattern">
+                            </app-field-error-display>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <input type="text" name="phone" placeholder="Enter your Mobile Number" id="phone"
+                         minlength="10" maxlength="10" formControlName="mobileNumber" (keypress)="isNumber($event)" />
+                    </div>
+                    <div class="error-sec mobileNo">
+                        <app-field-error-display class="invalid-form"
+                            *ngIf="getFormControl('mobileNumber')?.errors?.['required']" [displayError]="isFieldValid('mobileNumber')"
+                            [errorMsg]="errorMessageObject.mobileRequired">
+                        </app-field-error-display>
+                        <app-field-error-display class="invalid-form"
+                                [displayError]="isFieldValid('mobileNumber') && getFormControl('mobileNumber')?.errors?.['pattern']"
+                                [errorMsg]="errorMessageObject.mobilePattern">
+                            </app-field-error-display>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <select id="role" formControlName="role">
+                            <option selected disabled>Select Role</option>
+                            <option value="SUPER">SUPER</option>
+                            <option value="SUB">SUB</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <input type="password" name="password" placeholder="Enter your password" id="password"
+                            formControlName="password" />
+                    </div>
+                    <div class="error-sec password">
+                        <app-field-error-display class="invalid-form"
+                            *ngIf="getFormControl('password')?.errors?.['required']"
+                            [displayError]="isFieldValid('password')" [errorMsg]="errorMessageObject.passwordRequired">
+                        </app-field-error-display>
+                        <app-field-error-display class="invalid-form"
+                            [displayError]="isFieldValid('password') && getFormControl('password')?.errors?.['minlength']"
+                            [errorMsg]="errorMessageObject.passwordMinLength">
+                        </app-field-error-display>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <input type="password" name="confirmPassword" placeholder="Confirm your password"
+                            id="confirmPassword" formControlName="confirmPassword" />
+                    </div>
+                    <div class="error-sec conPassword">
+                        <app-field-error-display class="invalid-form"
+                            *ngIf="getFormControl('confirmPassword')?.errors?.['required']"
+                            [displayError]="isFieldValid('confirmPassword')" [errorMsg]="errorMessageObject.confirmPasswordRequired">
+                        </app-field-error-display>
+                        <!-- <app-field-error-display class="invalid-form"
+                            [displayError]="isFieldValid('password') && getFormControl('confirmPassword')?.errors?.['minlength']"
+                            [errorMsg]="errorMessageObject.confirmPasswordRequired">
+                        </app-field-error-display> -->
+                    </div>
+                    <div class="col-md-12 col-sm-12 btn-signup">
+                        <button class="btn">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card_terms">
+                <span>Already registered? <a routerLink="/sign-in">Sign In</a></span>
+            </div>
+        </div>
+    </div>
+</section>
